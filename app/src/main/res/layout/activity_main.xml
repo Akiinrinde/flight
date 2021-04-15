@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:background="#fff">
+
+   <com.google.android.material.appbar.AppBarLayout
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:id="@+id/app_bar"
+       android:theme="@style/Theme.AppBarOverlay"
+       android:outlineAmbientShadowColor="#ffff">
+
+
+      <androidx.appcompat.widget.Toolbar
+          android:id="@+id/tool_bar"
+          android:layout_width="match_parent"
+          android:layout_height="100dp"
+          app:popupTheme="@style/Theme.PopupOverlay"
+          android:background="#fff">
+
+         <LinearLayout
+             android:layout_width="match_parent"
+             android:layout_height="120dp"
+             android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginTop="3dp"
+                android:layout_marginLeft="2dp"
+                android:layout_marginBottom="2dp"
+                android:src="@drawable/circle_back"
+                app:tint="#9F9F9F" />
+
+            <TextView
+                android:id="@+id/first_text_view"
+                android:layout_width="200dp"
+                android:layout_height="70dp"
+                android:layout_marginLeft="2dp"
+                android:layout_marginTop="4dp"
+                android:textColor="@color/black"
+                android:textSize="24dp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.205"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/imageView" />
+         </LinearLayout>
+
+
+
+      </androidx.appcompat.widget.Toolbar>
+
+      <com.google.android.material.tabs.TabLayout
+          android:id="@+id/tab_tablayout"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:background="#fff"
+          app:tabIndicatorColor="#fff"
+          app:tabIndicatorHeight="3dp"
+          app:tabSelectedTextColor="#292727"
+          app:tabTextColor="#9F9F9F"
+          app:tabMode="fixed"
+          android:textAllCaps="false"/>
+
+   </com.google.android.material.appbar.AppBarLayout>
+
+   <androidx.viewpager.widget.ViewPager
+       android:id="@+id/tab_viewpager"
+       android:layout_width="match_parent"
+       android:layout_height="match_parent"
+       app:layout_behavior="@string/appbar_scrolling_view_behavior"
+       tools:ignore="SpeakableTextPresentCheck"
+       android:background="@color/white"
+       android:textAllCaps="false"/>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

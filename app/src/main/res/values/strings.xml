@@ -1,0 +1,29 @@
+<resources>
+    <string name="app_name">flight</string>
+
+    <string name="selected_item">Selected item:</string>
+    
+    <string-array name="first_dates">
+        <item>May 28, 2021</item>
+        <item>May 30, 2021</item>
+        <item>June 1, 2021</item>
+    </string-array>
+
+    <string-array name="second_dates">
+        <item>June 3, 2021</item>
+        <item>June 6, 2021</item>
+        <item>June 29, 2021</item>
+    </string-array>
+
+    <string-array name="adults">
+        <item>2 Adults</item>
+        <item>4 Adults</item>
+        <item>6 Adults</item>
+    </string-array>
+
+    <string-array name="babies">
+        <item>2 baby</item>
+        <item>4 baby</item>
+        <item>6 baby</item>
+    </string-array>
+</resources>
