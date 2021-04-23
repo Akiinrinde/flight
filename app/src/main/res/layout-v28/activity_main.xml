@@ -9,7 +9,7 @@
 
    <com.google.android.material.appbar.AppBarLayout
        android:layout_width="match_parent"
-       android:layout_height="wrap_content"
+       android:layout_height="180dp"
        android:id="@+id/app_bar"
        android:theme="@style/Theme.AppBarOverlay"
        android:outlineAmbientShadowColor="#ffff"
@@ -19,7 +19,7 @@
       <androidx.appcompat.widget.Toolbar
           android:id="@+id/tool_bar"
           android:layout_width="match_parent"
-          android:layout_height="130dp"
+          android:layout_height="120dp"
           app:popupTheme="@style/Theme.PopupOverlay"
           android:background="#fff">
 
@@ -54,6 +54,9 @@
                 app:layout_constraintTop_toBottomOf="@id/imageView"
                 android:textFontWeight="500"/>
          </LinearLayout>
+
+
+
       </androidx.appcompat.widget.Toolbar>
 
       <com.google.android.material.tabs.TabLayout
@@ -66,14 +69,12 @@
           app:tabSelectedTextColor="#292727"
           app:tabTextColor="#9F9F9F"
           app:tabMode="fixed"
-          app:tabGravity="center"
+          app:tabIndicatorFullWidth="false"
           app:tabIndicatorGravity="bottom"
-          app:tabTextAppearance="@style/TextAppearance.AppCompat.Small"
-          android:layout_marginTop="25dp" />
+          app:tabTextAppearance="@style/TextAppearance.AppCompat.Body1"
+          android:layout_marginTop="25dp"/>
 
    </com.google.android.material.appbar.AppBarLayout>
-
-
 
    <androidx.viewpager.widget.ViewPager
        android:id="@+id/tab_viewpager"
