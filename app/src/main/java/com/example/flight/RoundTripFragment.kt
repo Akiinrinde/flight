@@ -2,7 +2,6 @@ package com.example.flight
 
 import android.annotation.SuppressLint
 import android.graphics.Color
-import android.graphics.drawable.ColorDrawable
 import android.graphics.drawable.GradientDrawable
 import android.os.Build
 import android.os.Bundle
@@ -11,21 +10,20 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.*
 import androidx.annotation.RequiresApi
-import androidx.core.view.get
 import androidx.fragment.app.Fragment
 import com.example.flight.R.*
-import java.util.*
+import com.example.flight.databinding.RoundTripBinding
 
 class RoundTripFragment: Fragment() {
 
-
+    private lateinit var fragmentFirstBinding: RoundTripBinding
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        return inflater.inflate(layout.round_trip, container, false)
-
+    ):View? {
+        fragmentFirstBinding = RoundTripBinding.inflate(layoutInflater)
+        return fragmentFirstBinding.root
     }
 
     @SuppressLint("ResourceAsColor")
@@ -33,35 +31,29 @@ class RoundTripFragment: Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val firstSpinner = view.findViewById<Spinner>(R.id.first_spinner)
-
-        if(firstSpinner != null){
-            var adapter = ArrayAdapter.createFromResource(activity!!.applicationContext, array.first_dates, android.R.layout.simple_spinner_item)
-            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-            firstSpinner.adapter =adapter
+        val firstSpinner = fragmentFirstBinding.firstSpinner
+        val adapter = ArrayAdapter.createFromResource(activity!!.applicationContext, array.first_dates, android.R.layout.simple_spinner_item)
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        firstSpinner.adapter =adapter
 
 
-            firstSpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
-                override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
-                    parent?.getItemAtPosition(position)
+        firstSpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
+            override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+                parent?.getItemAtPosition(position)
 //                Toast.makeText(view?.context,
 //                        getString(R.string.selected_item) + " " +
 //                                "" + parent?.getItemAtPosition(position), Toast.LENGTH_SHORT).show()
-                }
-
-                override fun onNothingSelected(parent: AdapterView<*>?) {
-                    TODO("Not yet implemented")
-                }
-
             }
 
+            override fun onNothingSelected(parent: AdapterView<*>?) {
+                TODO("Not yet implemented")
+            }
 
-       }
+        }
 
 
-        val secondSpinner = view.findViewById<Spinner>(R.id.second_spinner)
+        val secondSpinner = fragmentFirstBinding.secondSpinner
         ArrayAdapter.createFromResource(activity!!.applicationContext, array.second_dates, android.R.layout.simple_spinner_item).also { secondAdapter ->
-//            secondAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
             secondSpinner.adapter = secondAdapter
         }
 
@@ -78,9 +70,8 @@ class RoundTripFragment: Fragment() {
         }
 
 
-        val  adultSpinner = view.findViewById<Spinner>(R.id.adult_spinner)
+        val  adultSpinner = fragmentFirstBinding.adultSpinner
         val adultAdapter = ArrayAdapter.createFromResource(activity!!.applicationContext, array.adults, android.R.layout.simple_spinner_item)
-//        adultAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         adultSpinner.adapter = adultAdapter
 
         adultSpinner.onItemSelectedListener = object :AdapterView.OnItemSelectedListener{
@@ -94,7 +85,7 @@ class RoundTripFragment: Fragment() {
 
         }
 
-        val babySpinner = view.findViewById<Spinner>(R.id.child_spinner)
+        val babySpinner =fragmentFirstBinding.childSpinner
         val babyAdapter = ArrayAdapter.createFromResource(activity!!.applicationContext, array.babies, android.R.layout.simple_spinner_item)
         babySpinner.adapter = babyAdapter
 
@@ -110,24 +101,24 @@ class RoundTripFragment: Fragment() {
         }
 
 
-        var firstButton = view.findViewById<Button>(R.id.first_button)
+        val firstButton = fragmentFirstBinding.firstButton
         firstButton.setOnClickListener {
             changeStroke(firstButton)
         }
 
-        var secondButton = view.findViewById<Button>(R.id.second_button)
+        val secondButton = fragmentFirstBinding.secondButton
         secondButton.setOnClickListener {
            changeStroke(secondButton)
         }
 
-        var thirdButton = view.findViewById<Button>(R.id.third_button)
+        val thirdButton = fragmentFirstBinding.thirdButton
         thirdButton.setOnClickListener {
             changeStroke(thirdButton)
         }
 
     }
 
-    fun changeStroke(button: Button){
+    private fun changeStroke(button: Button){
         val gd = GradientDrawable()
         gd.cornerRadius = 10f
         gd.setColor(Color.WHITE)

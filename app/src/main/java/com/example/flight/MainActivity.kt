@@ -16,22 +16,26 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
 import androidx.viewpager.widget.ViewPager
+import com.example.flight.databinding.ActivityMainBinding
 import com.google.android.material.tabs.TabLayout
 import org.w3c.dom.Text
 
 class MainActivity : AppCompatActivity() {
+
+    private lateinit var binding: ActivityMainBinding
     @RequiresApi(Build.VERSION_CODES.M)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
 
 
-        var tabToolBar = findViewById<androidx.appcompat.widget.Toolbar>(R.id.tool_bar)
-        var tabViewPager = findViewById<ViewPager>(R.id.tab_viewpager)
-        var tabTabLayout = findViewById<TabLayout>(R.id.tab_tablayout)
+        val tabToolBar = binding.toolBar
+        val tabViewPager = binding.tabViewpager
+        val tabTabLayout = binding.tabTablayout
 
-        var textView: TextView = findViewById(R.id.first_text_view)
+        val textView: TextView = binding.firstTextView
 
         val spannable = SpannableString("Find Flight, \nExplore Paradise")
         spannable.setSpan(ForegroundColorSpan(getColor(R.color.orange)), 5, 11, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
@@ -57,27 +61,3 @@ class MainActivity : AppCompatActivity() {
     }
 }
 
-class ViewPagerAdapter(supportFragmentManager: FragmentManager) :
-    FragmentPagerAdapter(supportFragmentManager) {
-
-    private var fragmentList1 :ArrayList<Fragment> = ArrayList()
-    private var fragmentTitleList1: ArrayList<String> = ArrayList()
-
-    override fun getItem(position: Int): Fragment {
-        return fragmentList1[position]
-    }
-
-    @Nullable
-    override fun getPageTitle(position: Int): CharSequence? {
-        return fragmentTitleList1[position]
-    }
-
-    override fun getCount(): Int {
-        return fragmentList1.size
-    }
-
-    fun addFragment(fragment: Fragment, title: String){
-        fragmentList1.add(fragment)
-        fragmentTitleList1.add(title)
-    }
-}

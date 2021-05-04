@@ -2,7 +2,20 @@
     <string name="app_name">flight</string>
 
     <string name="selected_item">Selected item:</string>
-    
+    <string name="from">From</string>
+    <string name="soekarna_hatta_international_airport">Soekarna Hatta International Airport</string>
+    <string name="jakarta_indonesia">Jakarta, Indonesia</string>
+    <string name="to">To</string>
+    <string name="z_rich_international_airport">Zürich International Airport</string>
+    <string name="z_rich_switzerland">Zürich, Switzerland</string>
+    <string name="departure">Departure</string>
+    <string name="infants">Infants</string>
+    <string name="class_string">Class</string>
+    <string name="economy">Economy</string>
+    <string name="business">Business</string>
+    <string name="vvip">VVIP</string>
+    <string name="search_flight">Search Flight</string>
+
     <string-array name="first_dates">
         <item>May 28, 2021</item>
         <item>May 30, 2021</item>

@@ -10,4 +10,11 @@
     <color name="orange">#FFA500</color>
     <color name="gray">#B5B5B5</color>
     <color name="green">#58d4b0</color>
+    <color name="selected_text_color">#292727</color>
+    <color name="background_white">#fdfdfd</color>
+    <color name="darker_darker_gray">#555252</color>
+    <color name="background_tint">#CEEDEB</color>
+    <color name="app_tint">#58d4b0</color>
+    <color name="view_color">#E6E6E6</color>
+    <color name="button_color">#58d4b0</color>
 </resources>
